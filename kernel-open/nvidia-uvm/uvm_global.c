@@ -112,7 +112,7 @@ NV_STATUS uvm_global_init(void)
     status = uvm_rm_locked_call(nvUvmInterfaceSessionCreate(&g_uvm_global.rm_session_handle, &platform_info));
     if (status != NV_OK) {
         UVM_ERR_PRINT("nvUvmInterfaceSessionCreate() failed: %s\n", nvstatusToString(status));
-        return status;
+        goto error;
     }
 
     uvm_ats_init(&platform_info);
